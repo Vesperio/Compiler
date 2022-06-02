@@ -173,30 +173,6 @@ func (l *Lexer) NextToken() (pos Position, kind int, token string) {
 	return
 }
 
-/*
-// 提取指定类型的 token
-func (l *Lexer) NextTokenOfKind(kind int) (pos Position, token string) {
-	for len(l.chunk) != 0 {
-		pos, _kind, token := l.NextToken()
-		if kind == _kind {
-			return pos, token
-		}
-	}
-
-	return
-}
-
-// 提取标识符
-func (l *Lexer) NextIdentifier() (pos Position, token string) {
-	return l.NextTokenOfKind(Identifier)
-}
-
-// 提取数字
-func (l *Lexer) NextNumber() (pos Position, token string) {
-	return l.NextTokenOfKind(Number)
-}
-*/
-
 // 判断字符是否是字母
 func isLetter(c byte) bool {
 	return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z'
