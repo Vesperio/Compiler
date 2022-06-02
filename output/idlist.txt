@@ -1,0 +1,9 @@
+b
+s
+main
+a
+PI
+_sum
+i
+printf
+cnt

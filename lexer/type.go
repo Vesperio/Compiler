@@ -31,13 +31,17 @@ const (
 	Assign // =
 
 	// 算术运算符
-	Add   // +
-	Minus // -
-	Mul   // *
-	Div   // /
-	Mod   // %
-	Pp    // ++
-	Mm    // --
+	Add         // +
+	AddAssign   // +=
+	Minus       // -
+	MinusAssign // -=
+	Mul         // *
+	MulAssign   // *=
+	Div         // /
+	DivAssign   // /=
+	Mod         // %
+	Incre       // ++
+	Decre       // --
 
 	// 关系运算符
 	Eq // ==
@@ -91,7 +95,7 @@ const (
 
 	// token 类型
 	Identifier // 标识符
-	String     // 字符串字面量 ""
+	String     // 字符串字面量 ""中的内容
 	Number     // 数字字面量
 )
 

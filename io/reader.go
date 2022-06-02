@@ -1,11 +1,11 @@
-package lexer
+package io
 
 import (
 	"io/ioutil"
 	"unsafe"
 )
 
-// 将 .c 的内容读入为字符串
+// 将 .c 文件的内容读入为字符串
 
 func ReadFile(name string, path string) string {
 	content, err := ioutil.ReadFile(path + name)
