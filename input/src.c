@@ -1,11 +1,12 @@
-/* #include <stdio.h> */
+/* input file */
+// #include <stdio.h>
 
 int main() {
     printf("Hello World!\n");
-    int a = 10, b = 20; // 无符号整数的识别
-    int _sum = a + b; // _符号打头的标识符的识别、算术运算符的识别
+    int a = 10, b = 20;
+    int _sum = a + b;
 
-    if (_sum > b) // 保留字的识别
+    if (_sum > b)
         printf("_sum 大于 b");
 
     char s[20] = "Hello Lexer!\n";
@@ -19,5 +20,5 @@ int main() {
     while (cnt--)
         printf("%d\n", cnt);
 
-    return 0; // 保留字的识别
+    return 0;
 }

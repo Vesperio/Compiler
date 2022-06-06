@@ -1,9 +1,10 @@
-b
-s
 main
-a
-PI
-_sum
 i
-printf
+b
+_sum
+PI
+a
+s
 cnt
+printf
+
