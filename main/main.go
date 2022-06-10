@@ -48,6 +48,7 @@ func main() {
 	*/
 
 	g.Init()
+
 	g.GetNullableSet()
 
 	/*
@@ -56,10 +57,23 @@ func main() {
 			fmt.Printf("%c\n", e)
 		}
 		it.Stop()
+
+		A
+		B
 	*/
 
 	g.GetFirstSet()
 
+	for k, v := range First {
+		fmt.Printf("%c: ", k)
+		it := v.Iterator()
+		for e := range it.C {
+			fmt.Printf("%c ", e)
+		}
+		it.Stop()
+		fmt.Println()
+	}
+	
 	/*
 		for k, v := range First {
 			fmt.Printf("%c: ", k)
@@ -70,6 +84,12 @@ func main() {
 			it.Stop()
 			fmt.Println()
 		}
+
+		A: +
+		B: *
+		E: i (
+		F: ( i
+		T: ( i
 	*/
 
 	g.GetFollowSet()
@@ -84,18 +104,60 @@ func main() {
 			it.Stop()
 			fmt.Println()
 		}
+
+		A: )
+		B: + )
+		E: )
+		F: + * )
+		T: + )
 	*/
 
 	for idx, p := range g.Prods {
-		fmt.Printf("%d: ", idx+1)
+		// fmt.Printf("%d: ", idx+1)
 		firstS := g.GetFirstS(p)
 		it := firstS.Iterator()
 		for e := range it.C {
-			fmt.Printf("%c ", e)
+			LL1Tab[p.L][e] = append(LL1Tab[p.L][e], idx+1)
+			// fmt.Printf("%c ", e)
 		}
 		it.Stop()
+		// fmt.Println()
+	}
+
+	/*
+		1: ( i
+		2: +
+		3: )
+		4: ( i
+		5: *
+		6: + )
+		7: (
+		8: i
+	*/
+
+	// fmt.Println(LL1Tab)
+
+	itT := g.T.Iterator()
+	for T := range itT.C {
+		fmt.Printf("\t%c", T)
+	}
+	itT.Stop()
+	fmt.Println()
+
+	itN := g.N.Iterator()
+	for N := range itN.C {
+		fmt.Printf("%c\t", N)
+		itT = g.T.Iterator()
+		for T := range itT.C {
+			for _, v := range LL1Tab[N][T] {
+				fmt.Printf("%d", v)
+			}
+			fmt.Printf("\t")
+		}
 		fmt.Println()
 	}
+	itN.Stop()
+	itT.Stop()
 
 	/*
 		src := io.ReadFile("src.c", "/Users/yindongpeng/Downloads/task/Compiler/input/")
